@@ -1,0 +1,87 @@
+{
+    "items": [
+        { 
+            "id": 1, 
+            "name": "Apple Monitor 2020", 
+            "image": "Apple-monitor.jpg",
+            "description" : "Resolution : 1920x1080 On Sale",
+            "owner_id" : "owner_id",
+            "category":"Electronics"
+        },
+
+        { 
+            "id": 2, 
+            "name": "Niko Camera", 
+            "image": "Camera.jpg",
+            "description" : "Quality Camera slightly used",
+            "owner_id" : "owner_id",
+            "category":"Electronics"
+        },
+        { 
+            "id": 3, 
+            "name": "Headsets", 
+            "image": "Headsets.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Accessories"
+        },
+        { 
+            "id": 4, 
+            "name": "Macbook pro 13-inch", 
+            "image": "Macbook-13inch.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Electronics"
+        },
+        { 
+            "id": 5, 
+            "name": "Makeup-kit for amateurs", 
+            "image": "Makeup-kit.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Beauty"
+        },
+        { 
+            "id": 6, 
+            "name": "La' dore perfume", 
+            "image": "Perfume.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Beauty"
+        },
+        { 
+            "id": 7, 
+            "name": "Iphone 9 Case red", 
+            "image": "Phone-case.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Accessory"
+        },
+        { 
+            "id": 8, 
+            "name": "Quick 2 Cube", 
+            "image": "Rubicks-cube.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Other"
+        },
+        { 
+            "id": 9, 
+            "name": "Slippers", 
+            "image": "Slippers.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Clothing"
+        },
+        { 
+            "id": 10, 
+            "name": "Smart-watch", 
+            "image": "Smart-watch.jpg",
+            "description" : "description here",
+            "owner_id" : "owner_id",
+            "category":"Accessories"
+        }
+
+
+    ]
+  }
