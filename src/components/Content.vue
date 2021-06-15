@@ -2,22 +2,10 @@
   <div class="main-div">
     <!-- Header-->
     <header class="bg-dark py-5">
-      <div class="welcome-section bg-light container">
-        <h1>Welcome to this Auction Site(Test section)</h1>
-
-        <div
-          class="g-signin2"
-          v-show="checkIfLoggedIn()"
-          data-onsuccess="onSignIn"
-          data-longtitle="true"
-          data-theme="dark"
-        ></div>
-        <button class="btn" onclick="logOut()">Log out</button>
-        <!-- Search Bar Component -->
-        <SearchBar />
-      </div>
+      
 
       <div class="container px-4 px-lg-5 my-5">
+        
         <div class="text-center text-white">
           <h1 class="display-4 fw-bolder">Shop in style</h1>
           <p class="lead fw-normal text-white-50 mb-0">
@@ -28,7 +16,11 @@
     </header>
     <!-- Section-->
     <section class="py-5">
-      <div class="filters"></div>
+
+      
+      <div class="filters">
+        <SearchBar />
+      </div>
       <div class="container px-4 px-lg-5 mt-5">
           <!-- Items are to be rendered here (from search and filtering) -->
           <Items :items="items"/>
@@ -81,11 +73,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.welcome-section {
-  margin: 0 auto;
+.filters {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  justify-content: center;
 }
 </style>

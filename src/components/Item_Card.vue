@@ -19,7 +19,7 @@
       <!-- Product actions-->
       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
         <div class="text-center">
-          <a class="btn btn-outline-dark mt-auto" href="#">View Bids</a>
+          <a v-on:click="goToDetails(item.id)" class="btn btn-outline-dark mt-auto" href="#">View Bids</a>
         </div>
       </div>
     </div>
@@ -32,5 +32,10 @@ export default ({
     props : {
         item : Object
     },
+    methods : {
+      goToDetails(itemId) {
+        this.$router.push({name : 'Details', params:{id:itemId}})
+      }
+    }
 });
 </script>
