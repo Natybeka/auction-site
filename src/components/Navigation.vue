@@ -17,9 +17,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
           <li class="nav-item">
-            <router-link class="nav-link active" aria-current="page" to="/Home">Home</router-link>
+            <router-link class="nav-link" :class="activeLink ==='Home'? ' active':''" aria-current="page" to="/Home">Home</router-link>
           </li>
-          <li class="nav-item"><router-link class="nav-link" to="/Track">Track Bids</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" :class="activeLink === 'track'? ' active':''" to="/Track">Track Bids</router-link></li>
           <li class="nav-item">
             <!-- <a
               class="nav-link dropdown-toggle"
@@ -36,10 +36,10 @@
               <li><a class="dropdown-item" href="#!">Popular Items</a></li>
               <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
             </ul> -->
-            <router-link class="nav-link" to='/Add'>Add Item</router-link>
+            <router-link class="nav-link" :class="activeLink ==='Add'? ' active':''" to='/Add'>Add Item</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Reviews">My Reviews</router-link>
+            <router-link class="nav-link" :class="activeLink ==='Reviews'? ' active':''" to="/Reviews">My Reviews</router-link>
           </li>
         </ul>
         <form class="d-flex">
@@ -58,12 +58,12 @@
 export default {
   name: "Navigation",
   props : {
-    active : String
-  }
+    activeLink : String
+  } 
 };
 </script>
 
-<style scoped>
+<style >
 .nav-item .nav-link:hover, .nav-item .nav-link.active{
   text-decoration: underline black;
   text-underline-offset: 10px;

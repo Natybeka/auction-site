@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Navigation activeLink="track"/>
+        <Navigation activeLink="Add"/>
         <router-view></router-view>
         <Footer />
     </div>
@@ -11,7 +11,7 @@ import Navigation from '../components/Navigation.vue'
 import Footer from '../components/Footer.vue' 
 
 export default {
-   name : 'Track',
+   name : 'AddItem',
    components : {
        Navigation,
        Footer

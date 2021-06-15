@@ -1,7 +1,7 @@
 <template>
 <!-- Home page has Navigation, content and footer components -->
   <div id="app">
-    <Navigation />
+    <Navigation activeLink="Home"/>
     <Content />
     <router-view></router-view>
     <Footer />
@@ -24,5 +24,6 @@ export default {
     Content,
     Footer
   }, 
+  
 };
 </script>

@@ -2,8 +2,6 @@
   <div class="main-div">
     <!-- Header-->
     <header class="bg-dark py-5">
-      
-
       <div class="container px-4 px-lg-5 my-5">
         
         <div class="text-center text-white">
@@ -16,8 +14,6 @@
     </header>
     <!-- Section-->
     <section class="py-5">
-
-      
       <div class="filters">
         <SearchBar />
       </div>
