@@ -1,87 +1,366 @@
 {
-    "items": [
-        { 
-            "id": 1, 
-            "name": "Apple Monitor 2020", 
-            "image": "Apple-monitor.jpg",
-            "description" : "Resolution : 1920x1080 On Sale",
-            "owner_id" : "owner_id",
-            "category":"Electronics"
+  "auctions": [
+    {
+      "id": 1,
+      "item": {
+        "id": 1,
+        "name": "Apple Monitor 2020",
+        "image": "Apple-monitor.jpg",
+        "description": "Resolution : 1920x1080 On Sale",
+        "owner_id": "owner_id",
+        "category": "Electronics"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "bids": [
+        {
+          "id": 0.08377378684396097,
+          "bidder_id": "some_id2",
+          "amount": "1230",
+          "bid_date": 1623853224687
         },
-
-        { 
-            "id": 2, 
-            "name": "Niko Camera", 
-            "image": "Camera.jpg",
-            "description" : "Quality Camera slightly used",
-            "owner_id" : "owner_id",
-            "category":"Electronics"
+        {
+          "id": 0.35007580348675416,
+          "bidder_id": "some_id2",
+          "amount": "5",
+          "bid_date": 1623853217061
         },
-        { 
-            "id": 3, 
-            "name": "Headsets", 
-            "image": "Headsets.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Accessories"
+        {
+          "id": 0.2247992816369191,
+          "bidder_id": "some_id2",
+          "amount": "1",
+          "bid_date": 1623853215044
         },
-        { 
-            "id": 4, 
-            "name": "Macbook pro 13-inch", 
-            "image": "Macbook-13inch.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Electronics"
+        {
+          "id": 0.811016286761451,
+          "bidder_id": "some_id2",
+          "amount": "-7",
+          "bid_date": 1623853210116
         },
-        { 
-            "id": 5, 
-            "name": "Makeup-kit for amateurs", 
-            "image": "Makeup-kit.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Beauty"
+        {
+          "id": 0.7852896518924837,
+          "bidder_id": "some_id2",
+          "amount": "8",
+          "bid_date": 1623852428144
         },
-        { 
-            "id": 6, 
-            "name": "La' dore perfume", 
-            "image": "Perfume.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Beauty"
+        {
+          "id": 0.9123566656030562,
+          "bidder_id": "some_id2",
+          "amount": "9",
+          "bid_date": 1623852410748
         },
-        { 
-            "id": 7, 
-            "name": "Iphone 9 Case red", 
-            "image": "Phone-case.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Accessory"
+        {
+          "id": 0.40507456871242975,
+          "bidder_id": "some_id2",
+          "amount": "",
+          "bid_date": 1623852400692
         },
-        { 
-            "id": 8, 
-            "name": "Quick 2 Cube", 
-            "image": "Rubicks-cube.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Other"
+        {
+          "id": 0.4858554847607297,
+          "bidder_id": "some_id2",
+          "amount": "1234",
+          "bid_date": 1623852390742
         },
-        { 
-            "id": 9, 
-            "name": "Slippers", 
-            "image": "Slippers.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Clothing"
+        {
+          "id": 0.187628408404942,
+          "bidder_id": "some_id2",
+          "amount": "1234",
+          "bid_date": 1623852356623
         },
-        { 
-            "id": 10, 
-            "name": "Smart-watch", 
-            "image": "Smart-watch.jpg",
-            "description" : "description here",
-            "owner_id" : "owner_id",
-            "category":"Accessories"
+        {
+          "id": 0.8005323566824172,
+          "bidder_id": "some_id2",
+          "amount": "1234",
+          "bid_date": 1623852356385
+        },
+        {
+          "id": 0.5425026170164688,
+          "bidder_id": "some_id2",
+          "amount": "90",
+          "bid_date": 1623852332013
+        },
+        {
+          "id": 0.4295800627525532,
+          "bidder_id": "some_id2",
+          "amount": "55555",
+          "bid_date": 1623852232019
+        },
+        {
+          "id": 0.8408673808402767,
+          "bidder_id": "some_id2",
+          "amount": "50000",
+          "bid_date": 1623852021543
+        },
+        {
+          "id": 0.867495676094221,
+          "bidder_id": "some_id2",
+          "amount": "30000",
+          "bid_date": 1623851969265
+        },
+        {
+          "id": 0.7188067576259745,
+          "bidder_id": "some_id2",
+          "amount": "20000",
+          "bid_date": 1623851964835
+        },
+        {
+          "id": 0.13078419187083345,
+          "bidder_id": "some_id2",
+          "amount": "20000",
+          "bid_date": 1623846964512
+        },
+        {
+          "id": 0.592484653666556,
+          "bidder_id": "some_id2",
+          "amount": "18000",
+          "bid_date": 1623846961110
+        },
+        {
+          "id": 0.9433303336152195,
+          "bidder_id": "some_id2",
+          "amount": "16000",
+          "bid_date": 1623846957348
+        },
+        {
+          "id": 0.5906178369011019,
+          "bidder_id": "some_id2",
+          "amount": "15000",
+          "bid_date": 1623846952661
+        },
+        {
+          "id": 0.5241341795552286,
+          "bidder_id": "some_id2",
+          "amount": "15000",
+          "bid_date": 1623846931461
+        },
+        {
+          "id": 0.5828944426084819,
+          "bidder_id": "some_id2",
+          "amount": "15000",
+          "bid_date": 1623846755578
+        },
+        {
+          "id": 0.5163246600275206,
+          "bidder_id": "some_id2",
+          "amount": "12000",
+          "bid_date": 1623846703758
+        },
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
         }
-
-
-    ]
-  }
+      ],
+      "currentHighest": "1230"
+    },
+    {
+      "id": 2,
+      "item": {
+        "id": 2,
+        "name": "Niko Camera",
+        "image": "Camera.jpg",
+        "description": "Quality Camera slightly used",
+        "owner_id": "owner_id",
+        "category": "Electronics"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "item": {
+        "id": 3,
+        "name": "Headsets",
+        "image": "Headsets.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Accessories"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "item": {
+        "id": 4,
+        "name": "Macbook pro 13-inch",
+        "image": "Macbook-13inch.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Electronics"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "item": {
+        "id": 5,
+        "name": "Makeup-kit for amateurs",
+        "image": "Makeup-kit.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Beauty"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "item": {
+        "id": 6,
+        "name": "La' dore perfume",
+        "image": "Perfume.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Beauty"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "item": {
+        "id": 7,
+        "name": "Iphone 9 Case red",
+        "image": "Phone-case.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Accessory"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "item": {
+        "id": 8,
+        "name": "Quick 2 Cube",
+        "image": "Rubicks-cube.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Other"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "item": {
+        "id": 9,
+        "name": "Slippers",
+        "image": "Slippers.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Clothing"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "item": {
+        "id": 10,
+        "name": "Smart-watch",
+        "image": "Smart-watch.jpg",
+        "description": "description here",
+        "owner_id": "owner_id",
+        "category": "Accessories"
+      },
+      "startingPrice": 10000,
+      "startDate": "2020/11/08",
+      "endDate": "2021/07/12",
+      "currentHighest": 10000,
+      "bids": [
+        {
+          "id": 1,
+          "amount": 11000,
+          "bidder_id": "some_id",
+          "bid_date": "2021/06/12"
+        }
+      ]
+    }
+  ]
+}

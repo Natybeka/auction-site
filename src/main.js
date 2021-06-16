@@ -8,6 +8,7 @@ import Details from './views/Details'
 import Track from './views/Track'
 import AddItem from './views/AddItem'
 import Reviews from './views/Reviews'
+import store from './store'
 Vue.config.productionTip = false
 
 
@@ -54,7 +55,10 @@ const router = new VueRouter({
 
   ]
 })
+
+// Entry point to application
 new Vue({
+  store,
   router,
   render: h => h(App),
 }).$mount('#app')

@@ -1,22 +1,22 @@
 <template>
 <!-- Render products -->
 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
-    <div  :key="item.id" v-for="item in items">
-        <Item_Card  :item="item"/>
+    <div  :key="auction.id" v-for="auction in auctions">
+        <Auction_Card  :auction="auction"/>
     </div>
 </div>
   
 </template>
 
 <script>
-import Item_Card from "./Item_Card.vue"
+import Auction_Card from "./Auction_Card.vue"
 export default {
-  name: "Items",
+  name: "Auctions",
   components:{
-      Item_Card
+      Auction_Card
   },
   props : {
-       items : Array
+       auctions : Array
   }
 };
 </script>

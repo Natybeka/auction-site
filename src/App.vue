@@ -72,7 +72,9 @@ export default {
     scroll-behavior: smooth;
   }
 }
-
+#app {
+  height: 100vh;
+}
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
