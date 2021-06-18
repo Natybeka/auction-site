@@ -1,0 +1,67 @@
+{
+  "name": "auction-site",
+  "version": "0.1.0",
+  "private": true,
+  "keywords": [
+    "vue form wizard",
+    "vue stepper",
+    "vue multi step form",
+    "step component vue",
+    "previous next tabs vue"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "backend": "json-server --watch db.json --port 5000",
+    "build-library": "vue-cli-service build --target lib --name vue-step-wizard ./src/install.js"
+  },
+  "main": "./dist/vue-step-wizard.common.js",
+  "unpkg": "./dist/vue-step-wizard.common.min.js",
+  "dependencies": {
+    "@smartweb/vue-flash-message": "^0.6.10",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.1",
+    "core-js": "^3.6.5",
+    "firebase": "^8.6.7",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+    "random-words": "^1.1.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.1",
+    "vue2-datepicker": "^3.9.1",
+    "vue3-datepicker": "^0.2.4",
+    "vuelidate": "^0.7.5",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
