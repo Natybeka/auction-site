@@ -6,7 +6,7 @@
     <div class="container h-100 mt-1">
       <div class="row d-flex justify-content-between" style="height:40vh;">
         <!-- Images and description -->
-        <div class="col-md-7 col-sm-12 " >
+        <div class="col-md-7 col-sm-12 ">
           <div
             class="
               card
@@ -43,9 +43,13 @@
         </div>
 
         <!-- Form for entering bid -->
-        <h6 class="bid-amount-error text-danger text-center mt-4 p-0" style="display:none;">Please enter a valid bid</h6>
+        <h6
+          class="bid-amount-error text-danger text-center mt-4 p-0"
+          style="display:none;"
+        >
+          Please enter a valid bid
+        </h6>
         <form class="mt-3 d-flex justify-content-center" @submit="updateBid">
-          
           <input
             type="number"
             v-model="bidAmount"
@@ -61,7 +65,6 @@
         <div class="container mt-3">
           <table class="table text-center">
             <thead class="bg-light">
-              
               <th>Bidder Name</th>
               <th>Bid Time</th>
               <th>Bid Amount</th>
@@ -72,7 +75,6 @@
 				</tr> -->
 
               <tr :key="bid.id" v-for="bid in auction.bids">
-                
                 <td>username</td>
                 <td>{{ bid.bid_date }}</td>
                 <td>{{ bid.amount }}</td>
@@ -82,7 +84,6 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -90,7 +91,6 @@
 import Navigation from "../components/Navigation.vue";
 import Footer from "../components/Footer.vue";
 import { mapActions, mapGetters } from "vuex";
-
 
 export default {
   name: "Details",
@@ -101,27 +101,22 @@ export default {
   data() {
     return {
       bidAmount: "",
-      auction: Object,
     };
+  },
+  computed: {
+    ...mapGetters(["auction"]),
   },
 
   methods: {
-    async fetchAuction(id) {
-      const response = await fetch(
-        `http://localhost:5000/auction/auction/${id}`
-      );
-      const data = await response.json();
-      console.log(data);
-      return data;
-    },
-    ...mapActions(["getAuction", "updateAuctions"]),
+    ...mapActions(["getActiveAuction", "updateAuctions"]),
+
     countdown() {
       var date = this.auction.endDate;
 
       var countDownDate = new Date(date);
       console.log(date);
       // Update the count down every 1 second
-      var x = setInterval(function () {
+      var x = setInterval(function() {
         // Get today's date and time
         var now = new Date().getTime();
 
@@ -147,23 +142,25 @@ export default {
         }
       }, 1000);
     },
+
     removeWarning() {
-      document.querySelector('.bid-amount-error').style.display = "none";
-      document.querySelector('.bid-input').style.border = "1px";
+      document.querySelector(".bid-amount-error").style.display = "none";
+      document.querySelector(".bid-input").style.border = "1px";
     },
+
     //update bids
     updateBid(e) {
       console.log("update bid called");
       e.preventDefault();
-      // validate input for bid
-      if (this.bidAmount <= this.auction.currentHighest){
-        document.querySelector('.bid-amount-error').style.display = "block";
-        document.querySelector('.bid-input').style.border = "2px solid red";
+      // basic validation for the bidding proccess
+      if (this.bidAmount <= this.auction.currentHighest) {
+        document.querySelector(".bid-amount-error").style.display = "block";
+        document.querySelector(".bid-input").style.border = "2px solid red";
         return;
       }
 
-
-      let userId = sessionStorage.getItem('userId');
+      let userId = sessionStorage.getItem("userId");
+      // console.log(userId);
       this.auction.bids.unshift({
         bidder_id: userId,
         amount: this.bidAmount,
@@ -176,11 +173,16 @@ export default {
     },
   },
 
-  // Get details and start countdown upon loading
+  /**
+   * Get details and start countdown upon the created lifecycle hook
+   * get the auction id from the route parameter
+   * find the relevant resource from the current state of auctions using find method
+   */
   async created() {
-    // this.auction = this.$store.getters.activeAuction(this.$route.params.id);
-    this.auction = await this.fetchAuction(this.$route.params.id);
-    console.log(this.auction);
+    let auctionId = this.$route.params.id;
+
+    await this.getActiveAuction(auctionId);
+    // Start the countdown
     this.countdown();
   },
 };

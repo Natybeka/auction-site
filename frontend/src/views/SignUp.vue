@@ -36,7 +36,7 @@
                     required
                   />
                 </div>
-                
+
                 <div class="form-group">
                   <input
                     type="text"
@@ -70,7 +70,7 @@
                     class="fa fa-fw fa-eye field-icon toggle-password"
                   ></span> -->
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                   <input
                     type="text"
                     class="form-control address"
@@ -94,7 +94,10 @@
                     class="form-control btn btn-primary submit px-3"
                     >Log In</router-link
                   > -->
-                  <button class="btn btn-defualt btn-block signInBtn" @click="normal_signUp">
+                  <button
+                    class="btn btn-defualt btn-block signInBtn"
+                    @click="normal_signUp"
+                  >
                     Sign Up
                   </button>
                 </div>
@@ -111,11 +114,17 @@
               </div>
               <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
               <div class="social d-flex text-center">
-                <button class="btn btn-default btn-block mr-4" @click="handleGoogle">
-                 <i class="fab fa-google fa-3x"></i>
+                <button
+                  class="btn btn-default btn-block mr-4"
+                  @click="handleGoogle"
+                >
+                  <i class="fab fa-google fa-3x"></i>
                 </button>
-                <button class="btn btn-defualt btn-block mr-4" @click="handleFacebook">
-                 <i class="fab fa-facebook-f fa-3x"></i>
+                <button
+                  class="btn btn-defualt btn-block mr-4"
+                  @click="handleFacebook"
+                >
+                  <i class="fab fa-facebook-f fa-3x"></i>
                 </button>
               </div>
             </div>
@@ -138,13 +147,12 @@
   </div>
 </template>
 
-
 <script>
 // Firebase Library
 import firebase from "firebase/app";
 import "firebase/auth";
 import axios from "axios";
-import randomWords from "random-words"
+import randomWords from "random-words";
 
 let path = "http://localhost:5000/auth";
 
@@ -159,7 +167,6 @@ export default {
       username: "",
       providerName: "",
       user_id: "",
-      Username: "",
       phone: "",
       address: "",
       full_name: "",
@@ -167,8 +174,8 @@ export default {
   },
   methods: {
     // Function to update db with firebase id
-    update_api: async function (user_info) {
-      console.log("here");
+    update_api: async function(user_info) {
+      console.log("---Entering user information---");
       axios
         .post(`${path}/signuser`, { user_info })
         .then(() => {})
@@ -182,7 +189,7 @@ export default {
 
     // Function to get id from firebase_id
 
-    get_user_id: function () {
+    get_user_id: function() {
       axios
         .get(`${path}/users/${this.firebase_id}`)
         .then(async (response) => {
@@ -200,12 +207,18 @@ export default {
     },
 
     // Function for firebase register with email and password
-    normal_signUp() {
-      // If Data is valid
-      if (
-        true
-        // && this.validate_password()
-      ) {
+    async normal_signUp() {
+      /**
+       * username unique check as well as some data validations
+       */
+      console.log("Checking user entrys");
+      let validUserName = false;
+      const response = await axios.get(
+        `${path}/checkusername/${this.username}`
+      );
+      if (response.data === 409) validUserName = true;
+
+      if (validUserName) {
         // Call Firebase API
         firebase
           .auth()
@@ -217,18 +230,14 @@ export default {
               this.firebase_id = user.uid;
               // Function to call api route for adding to db
               this.update_api({
-                // userId: this.firebase_id,
-                // Username: this.Username,
-                // Phone: this.Phone,
-                // Address: this.Address,
                 UserId: this.firebase_id,
                 Username: this.username,
                 Password: this.password,
                 FirstName: this.firstname,
                 LastName: this.lastname,
                 Email: this.email,
-                Address: "Address",
-                PhoneNumber: "PhoneNumber",
+                Address: this.address,
+                PhoneNumber: this.phone,
                 Rating: 0,
               });
               // Redirect to login route
@@ -263,7 +272,7 @@ export default {
     },
 
     // Function to handle SSO for all methods
-    handle_sso: function () {
+    handle_sso: function() {
       // Find out the selected provider
       let provider;
       if (this.providerName == "Google") {
@@ -292,27 +301,25 @@ export default {
             }
             // Request for id with firebase_id
 
-            console.log("Here")
-            
+            console.log("Here");
+
             axios
               .get(`${path}/getuser/${user.uid}`)
               .then((response) => {
                 // If firebase_id in database
-                console.log("Here2")
                 if (response.data.code == "Error") {
                   // Redirect to home Component
-                  
+
                   this.$router.push({ name: "Home" });
                   sessionStorage.setItem("userId", this.firebase_id);
                   // Call Function to HANDLE ID SHARING
                   this.get_user_id(this.firebase_id);
                 }
 
-                
                 // If new firebase_id
                 else if (response.data.code == "Success") {
                   // Add firebase_id to DB
-                  console.log("Here3")
+                  console.log("Here3");
                   this.update_api({
                     UserId: this.firebase_id,
                     Username: randomWords(),
@@ -345,18 +352,18 @@ export default {
         );
     },
 
-    handleGoogle: function () {
+    handleGoogle: function() {
       this.providerName = "Google";
       this.handle_sso();
     },
 
-    github_login: function () {
+    github_login: function() {
       this.providerName = "Github";
 
       this.handle_sso();
     },
 
-    handleFacebook: function () {
+    handleFacebook: function() {
       this.providerName = "Facebook";
 
       this.handle_sso();
@@ -381,7 +388,7 @@ export default {
   padding: 10rem 10px;
   color: white;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("~@/assets/bg.jpg");
+    url("~@/assets/images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 120vh;
@@ -420,12 +427,16 @@ input:focus::placeholder {
   color: #333;
 }
 .fa-google {
-  color:  #0F9D58;
- }
-.fa-facebook-f{
-  color: #4267B2;
-} 
-.signInBtn{
-  background-image: linear-gradient(to bottom right, rgb(99, 8, 87), rgb(241, 156, 28));
+  color: #0f9d58;
+}
+.fa-facebook-f {
+  color: #4267b2;
+}
+.signInBtn {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(99, 8, 87),
+    rgb(241, 156, 28)
+  );
 }
 </style>

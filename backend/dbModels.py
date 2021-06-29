@@ -28,7 +28,7 @@ class Item(db.Model):
 
 class Bid(db.Model):
     __tablename__ = "bids"
-    AuctionId = db.Column(db.Integer, db.ForeignKey(
+    AuctionId = db.Column(db.String, db.ForeignKey(
         "auctions.AuctionId"), nullable=False)
     BidId = db.Column(db.String, primary_key=True)
     UserId = db.Column(db.String, db.ForeignKey(
@@ -38,7 +38,7 @@ class Bid(db.Model):
     
 class Auction(db.Model):
     __tablename__ = "auctions"
-    AuctionId = db.Column(db.Integer, primary_key=True)
+    AuctionId = db.Column(db.String, primary_key=True)
     ItemId = db.Column(db.String, db.ForeignKey(
         "items.ItemId"), nullable=False)
     StartDate = db.Column(db.DateTime, nullable=False)

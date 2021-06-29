@@ -18,14 +18,25 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import randomWords from 'random-words'
 
-var firebaseConfig = {
-  apiKey: "AIzaSyDzsSTmNB89pp75V5UW4Cqdz0sAJoEToxs",
-  authDomain: "webappelectro-acd0d.firebaseapp.com",
-  projectId: "webappelectro-acd0d",
-  storageBucket: "webappelectro-acd0d.appspot.com",
-  messagingSenderId: "47353199602",
-  appId: "1:47353199602:web:bd4745ecd2973e6c2b496b",
-  measurementId: "G-TXK37G52MJ"
+// var firebaseConfig = {
+//   apiKey: "AIzaSyDzsSTmNB89pp75V5UW4Cqdz0sAJoEToxs",
+//   authDomain: "webappelectro-acd0d.firebaseapp.com",
+//   projectId: "webappelectro-acd0d",
+//   storageBucket: "webappelectro-acd0d.appspot.com",
+//   messagingSenderId: "47353199602",
+//   appId: "1:47353199602:web:bd4745ecd2973e6c2b496b",
+//   measurementId: "G-TXK37G52MJ"
+// };
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBz_CDyWAkMguyHcg1Tt0AhWr58VS18lio",
+  authDomain: "auction-site-316318.firebaseapp.com",
+  projectId: "auction-site-316318",
+  storageBucket: "auction-site-316318.appspot.com",
+  messagingSenderId: "462651050874",
+  appId: "1:462651050874:web:976eae2142e510a44f64c3",
+  measurementId: "G-QWTP1SPV3E"
 };
 
 firebase.initializeApp(firebaseConfig);

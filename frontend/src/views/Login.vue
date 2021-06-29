@@ -16,7 +16,7 @@
             <div class="login-wrap p-0">
               <h3 class="mb-4 text-center">Have an account?</h3>
               <div action="" class="signin-form">
-                 <!-- Email input field -->
+                <!-- Email input field -->
                 <div class="form-group">
                   <input
                     type="email"
@@ -56,7 +56,9 @@
                 </div>
                 <div class="form-group d-md-flex">
                   <div class="w-100 text-md-right">
-                    <router-link to="/" style="color: #fff">Don't have an account</router-link>
+                    <router-link to="/" style="color: #fff"
+                      >Don't have an account</router-link
+                    >
                   </div>
                   <div class="w-100 text-md-right">
                     <a href="#" style="color: #fff">Forgot Password</a>
@@ -65,11 +67,17 @@
               </div>
               <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
               <div class="social d-flex text-center">
-                <button class="btn btn-default btn-block mr-4" @click="handleGoogle">
-                 <i class="fab fa-google fa-3x"></i>
+                <button
+                  class="btn btn-default btn-block mr-4"
+                  @click="handleGoogle"
+                >
+                  <i class="fab fa-google fa-3x"></i>
                 </button>
-                <button class="btn btn-defualt btn-block mr-4" @click="handleGoogle">
-                 <i class="fab fa-facebook-f fa-3x"></i>
+                <button
+                  class="btn btn-defualt btn-block mr-4"
+                  @click="handleGoogle"
+                >
+                  <i class="fab fa-facebook-f fa-3x"></i>
                 </button>
               </div>
             </div>
@@ -92,26 +100,24 @@
   </div>
 </template>
 
-
 <script>
 import firebase from "firebase";
 import "firebase/auth";
-import axios from "axios"
-
+import axios from "axios";
 
 let path = "http://localhost:5000/auth";
 
 export default {
   name: "Login",
 
-  data(){
+  data() {
     return {
-      email:"",
-      password:""
+      email: "",
+      password: "",
     };
   },
   methods: {
-    update_api: function (user_info) {
+    update_api: function(user_info) {
       axios
         .post(`${path}/signuser, { user_info }`)
         .then(() => {})
@@ -122,25 +128,22 @@ export default {
         });
     },
     // Function to get id from firebase_id
-    get_user_id: function () {
+    get_user_id: function() {
       axios
         .post(`${path}/getUserID/${this.firebase_id}`)
         .then(async (response) => {
           this.user_id = await response.data.id;
           this.team_name = await response.data.team_name;
 
-
           // Add User ID to local storage or cookies
           // Update store state
           if (this.user_id) {
-            refs/remotes/origin/master
+            refs / remotes / origin / master;
             this.$store.commit("setCurrentUserID", this.user_id);
             this.$store.commit("setMyTeamName", this.team_name);
             localStorage.setItem("token", response.data.token);
             // this.$store.dispatch("getActiveGameweek");
           }
-
-          
         })
         .catch((err) => {
           this.flashMessage.error({
@@ -178,18 +181,15 @@ export default {
               // Redirect to login route
               this.$router.push({ name: "Home" });
 
-              sessionStorage.setItem("userId", this.firebase_id)
+              sessionStorage.setItem("userId", this.firebase_id);
 
               // GET USER ID
               this.get_user_id(this.firebase_id);
               // Flash Success Message at Login
               this.flashMessage.success({
                 title: "Successfully Logged In",
-                message:
-                  "Login was successful",
+                message: "Login was successful",
               });
-
-             
             },
             // If User email is already in use in firebase
             (err) => {
@@ -204,7 +204,6 @@ export default {
           message: "Please check your input.",
         });
       }
-
     },
 
     // for google
@@ -221,26 +220,22 @@ export default {
 
           this.firebase_id = user.uid;
 
-          if (user.displayName){
+          if (user.displayName) {
             this.full_name = user.displayName;
           }
 
-          this.$router.push({ name: "Home"})
+          this.$router.push({ name: "Home" });
 
-          sessionStorage.setItem("userId", this.firebase_id)
-         
+          sessionStorage.setItem("userId", this.firebase_id);
         }),
-        
         () => {
-            // Call Error Handler Function
-            console.log("Some error")
-          }
+          // Call Error Handler Function
+          console.log("Some error");
+        };
     },
-    
   },
 };
 </script>
-
 
 <style scoped>
 /* .welcome-section {
@@ -258,7 +253,7 @@ export default {
   padding: 10rem 10px;
   color: white;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("~@/assets/bg.jpg");
+    url("~@/assets/images/bg.jpg");
   height: 100vh;
 }
 
@@ -292,13 +287,16 @@ input:focus::placeholder {
   color: #333;
 }
 .fa-google {
-  color:  #0F9D58;
- }
-.fa-facebook-f{
-  color: #4267B2;
-} 
-.logInBtn{
-  background-image: linear-gradient(to bottom right, rgb(8, 63, 99), rgb(28, 138, 241));
+  color: #0f9d58;
+}
+.fa-facebook-f {
+  color: #4267b2;
+}
+.logInBtn {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(8, 63, 99),
+    rgb(28, 138, 241)
+  );
 }
 </style>
-    

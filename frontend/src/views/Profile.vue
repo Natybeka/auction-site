@@ -278,7 +278,8 @@ export default {
                 !this.phonenumber || !this.address){
                     this.warning = "Please fill all the fields"
            }else{
-            fetch(`http://localhost:5000/auth/users/tellmewhy`,{
+            let userId = sessionStorage.getItem("userId");
+            fetch(`http://localhost:5000/auth/users/${userId}`,{
                method : "PUT",
                headers : {
                    "Content-Type" : "application/json"

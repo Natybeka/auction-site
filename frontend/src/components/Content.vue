@@ -18,7 +18,7 @@
       </div>
       <div class="container px-4 px-lg-5 mt-5">
         <!-- Items are to be rendered here (from search and filtering) -->
-        <Auctions :auctions="allAuctions" />
+        <Auctions :auctions="auctions" />
       </div>
     </section>
   </div>
@@ -27,12 +27,12 @@
 <script>
 import SearchBar from "./SearchBar.vue";
 import Auctions from "./Auctions.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   name: "Content",
   data() {
     return {
-      itemSubset : []
+      
     }
   },
   components: {
@@ -40,28 +40,20 @@ export default {
     Auctions,
   },
   computed: {
-    ...mapGetters(["allAuctions"]),
-    itemSubset : Array
+    ...mapGetters(["auctions"]),
   },
   async created() {
-    this.allAuctions = await this.getAllAuctions(); 
-    this.itemSubset = await this.allAuctions;
+    // Call the getAllAuctions action in auctions store
+    // To obtain all the available auctions
+    await this.getAllAuctions();
   },
 
   methods: {
     ...mapActions(["getAllAuctions"]),
+
     filterItems(itemName) {
       console.log("Code here");
       this.itemSubset = this.allAuctions.filter(auction => auction.item.name === itemName)
-    },
-    checkIfLoggedIn() {
-      // Check if user has logged in with sessionStorage == null comparison
-      if (sessionStorage.getItem("myUserEntity") == null) {
-        console.log("logged in");
-        return true;
-      }
-      console.log("logged out");
-      return false;
     },
   },
 };

@@ -44,7 +44,7 @@ class userResource(Resource):
         auctionDict['startingPrice'] = auction.InitialPrice
         auctionDict['highestBidder'] = auction.HighestBidder
         auctionDict['item'] = {}
-        item = Item.query.filter_by(ItemId=str(auction.AuctionId)).first()
+        item = Item.query.filter_by(ItemId=str(auction.ItemId)).first()
         auctionDict['item']['id'] = item.ItemId
         auctionDict['item']['name'] = item.ItemName
         auctionDict['item']['description'] = item.Description
@@ -71,8 +71,6 @@ class userResource(Resource):
     def put(self, auctionId):
         auction = Auction.query.filter_by(AuctionId=auctionId).first()
         # item.ItemId = "1"
-        print("here")
-        print(request.json['latestBid'])
         auction.CurrentPrice = request.json['latestBid']
         auction.HighestBidder = request.json['latestBidder']
 
@@ -115,7 +113,7 @@ class userResource(Resource):
             auctionDict['highestBidder'] = auction.HighestBidder
             # Item part
             auctionDict['item'] = {}
-            item = Item.query.filter_by(ItemId=str(auction.AuctionId)).first()
+            item = Item.query.filter_by(ItemId=str(auction.ItemId)).first()
             auctionDict['item']['id'] = item.ItemId
             auctionDict['item']['name'] = item.ItemName
             auctionDict['item']['description'] = item.Description
@@ -135,7 +133,7 @@ class userResource(Resource):
                     "bidder_id": bid.UserId
                 })
             returnArr.append(auctionDict)
-        print(returnArr)
+        
         # return auctions_schema.dump(auction)
         return jsonify(returnArr)
 
@@ -143,15 +141,15 @@ class userResource(Resource):
     def post(self):
         # creates a new user
 
-        new_auction = auction()
-        new_auction.AuctionId = "1"
+        new_auction = Auction()
+        new_auction.AuctionId = request.json['AuctionId']
         new_auction.ItemId = request.json['ItemId']
         new_auction.StartDate = request.json['StartDate']
         new_auction.EndDate = request.json['EndDate']
         new_auction.InitialPrice = request.json['InitialPrice']
         new_auction.CurrentPrice = request.json['CurrentPrice']
         new_auction.IsCompleted = request.json['IsCompleted']
-        new_auction.HigestBidder = request.json['HighestBidder']
+        new_auction.HighestBidder = request.json['HighestBidder']
 
         db.session.add(new_auction)
         db.session.commit()

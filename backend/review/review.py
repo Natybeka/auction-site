@@ -29,7 +29,7 @@ review = api.model("review", {
 class userResource(Resource):
     def get(self, reviewId):
         # to display one review
-        user = review.query.filter_by(ReviewId=reviewId).first()
+        user = Review.query.filter_by(ReviewId=reviewId).first()
         return review_schema.dump(user)
     
     # to update an review
